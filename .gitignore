@@ -1,0 +1,152 @@
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+**/node_modules/
+
+# ==========================================
+# Environment variables and secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+
+# ==========================================
+# Build output
+# ==========================================
+dist/
+build/
+client/dist/
+server/dist/
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# Test results and coverage
+# ==========================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# ==========================================
+# Caches and temporary files
+# ==========================================
+.cache/
+*.local
+.eslintcache
+*.tsbuildinfo
+tmp/
+temp/
+
+# ==========================================
+# Local databases and backups
+# ==========================================
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+
+# ==========================================
+# Runtime files
+# ==========================================
+pids/
+*.pid
+.mongodb-binaries/
+.mongo-memory/
+
+# ==========================================
+# Editor and operating system
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ==========================================
+# Deployment metadata
+# ==========================================
+.vercel/
+.netlify/
+
+# ==========================================
+# Package manager artifacts
+# ==========================================
+.pnp.*
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.tmp
+*.temp
+```
+
+## 3. Three important things to know
+
+### A. Your `.env.example` files are allowed
+
+Your existing rules correctly allow `.env.example` files to be committed.
+
+For example:
+
+```dotenv
+# Safe example values only
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/crust_and_craft
+JWT_SECRET=replace_with_a_secure_random_secret
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-gmail-app-password
+```
+
+Use placeholders for credentials. Never put your actual Gmail App Password, Razorpay secret, or production database password in an example file.
+
+### B. `.gitignore` cannot untrack files already committed
+
+After saving your `.gitignore`, run these commands from your project root:
+
+```cmd
+git status --short
+git ls-files server/.env
+git ls-files client/.env
+```
+
+If either `.env` file is already tracked, remove it from Git's index without deleting your local copy:
+
+```cmd
+git rm --cached -- server/.env
+git rm --cached -- client/.env
+```
+
+Run these only for files that are actually tracked.
+
+### C. Verify that the rules work
+
+Run:
+
+```cmd
+git check-ignore -v server/.env
+git check-ignore -v server/node_modules/
+```
+
+Git should display the matching ignore rules.
+
+**One final security reminder:** If real credentials have already been pushed to GitHub, rotate them. Ignoring the files now will not remove those credentials from the repository's previous history.
+
+Once you've checked the rules and confirmed no secrets are staged, you're ready to commit your `.gitignore` changes and push the project safely.
