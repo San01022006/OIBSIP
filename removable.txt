@@ -1,0 +1,26 @@
+client\src\context\AuthContext.jsx:21:when no storefront session is present.
+client\src\pages\BuildPizza.jsx:48:Prefill from a menu pizza recipe (?pizza=<id>).
+server\src\data\menuData.js:7:── Bases (exactly five) ─────────────────────────────
+server\src\data\menuData.js:14:── Sauces (exactly five) ────────────────────────────
+server\src\data\menuData.js:21:── Cheeses ──────────────────────────────────────────
+server\src\data\menuData.js:27:── Vegetables ───────────────────────────────────────
+server\src\models\InventoryMovement.js:10:Negative when stock is deducted, positive when added.
+server\src\models\NotificationLog.js:10:'normal' | 'low_active' (alerted and not yet resolved) | 'resolved'
+server\src\models\Pizza.js:11:Price of the fully-specified pizza in INR.
+server\src\models\Pizza.js:13:Human readable ingredient list shown on the card.
+server\src\models\Token.js:7:Only the SHA-256 hash of the token is stored — never the raw token.
+server\src\models\Token.js:16:TTL index — MongoDB removes expired tokens automatically.
+server\src\routes\index.js:30:display and to decide which checkout experience to offer.
+server\src\routes\index.js:44:Public key id is safe to expose; the secret never is.
+server\src\services\authService.js:39:Parse simple duration strings like 7d / 12h / 30m; fall back to 7 days.
+server\src\services\authService.js:93:Unverified duplicate: resend verification instead of failing hard. Also
+server\src\services\authService.js:94:backfill a phone number if the previous attempt did not store one.
+server\src\services\authService.js:158:Perform a dummy compare to reduce timing side-channel.
+server\src\services\notificationService.js:21:Alert items that are low and not already flagged as low_active.
+server\src\services\notificationService.js:50:Resolve items that are back above threshold.
+server\src\utils\mailer.js:20:Development fallback: JSON transport. The message is logged, never sent.
+server\src\utils\mailer.js:78:production, and never when it could leak in a real deployment.
+server\tests\adminAuth.isolation.test.js:84:The storefront still resolves the customer...
+server\tests\registration.email.test.js:81:Pre-fix this was 3 (two sends on the first request). Now exactly one each.
+server\tests\registration.email.test.js:109:Simulate a configured SMTP by making the mailer "real" for devHint.
+server\tests\setup.js:1:Force the test environment before any module reads env.js.
